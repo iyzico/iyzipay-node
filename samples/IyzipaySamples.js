@@ -1061,6 +1061,7 @@ describe('Iyzipay API Test', function () {
                 locale: Iyzipay.LOCALE.TR,
                 conversationId: '123456789',
                 paymentId: '1',
+                paidPrice: '0.6',
                 ip: '127.0.0.1'
             }, function (err, result) {
                 console.log(err, result);
