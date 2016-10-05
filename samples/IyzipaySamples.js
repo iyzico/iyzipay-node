@@ -31,7 +31,7 @@ describe('Iyzipay API Test', function () {
             }, function (err, result) {
                 console.log(err, result);
                 done();
-            })
+            });
         });
     });
 
@@ -45,8 +45,8 @@ describe('Iyzipay API Test', function () {
             }, function (err, result) {
                 console.log(err, result);
                 done();
-            })
-        })
+            });
+        });
     });
 
     describe('BinNumber', function () {
