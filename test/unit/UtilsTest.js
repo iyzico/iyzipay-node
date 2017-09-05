@@ -43,25 +43,6 @@ describe('Iyzipay', function () {
         done();
     });
 
-    it('should generate request string for basic request', function (done) {
-        var requestString = utils.generateRequestString({
-            name: "John",
-            surname: "Doe"
-        });
-        requestString.should.be.equal("[name=John,surname=Doe]");
-        done();
-    });
-
-    it('should generate request string for request that has array values', function (done) {
-        var requestString = utils.generateRequestString({
-            name: "John",
-            surname: "Doe",
-            friends: [{name: "Johnny"}, {name: "Mike"}]
-        });
-        requestString.should.be.equal("[name=John,surname=Doe,friends=[[name=Johnny], [name=Mike]]]");
-        done();
-    });
-
     it('should generate random string', function (done) {
         var randomString = utils.generateRandomString(8);
         randomString.should.not.be.null;
