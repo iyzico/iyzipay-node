@@ -5,6 +5,10 @@
 
 You can sign up for an iyzico account at [https://iyzico.com](https://iyzico.com)
 
+# Requirements
+
+Node.js v0.10.0 or later
+
 # Installation
 
 `npm install iyzipay`
