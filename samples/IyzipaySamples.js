@@ -1,13 +1,14 @@
 var should = require('should'),
     assert = require('assert'),
-    Iyzipay = require('../lib/Iyzipay');
+    Iyzipay = require('../lib/Iyzipay'),
+    options = require('./data/options');;
 
 describe('Iyzipay API Test', function () {
 
     var iyzipay;
 
     before(function (done) {
-        iyzipay = new Iyzipay();
+        iyzipay = new Iyzipay(options);
         done();
     });
     
@@ -15,7 +16,28 @@ describe('Iyzipay API Test', function () {
 
         it('should test api', function (done) {
             iyzipay.apiTest.retrieve({}, function (err, result) {
-                console.log(err, result);
+                should.not.exist(err);
+                should.exist(result);
+                result.should.have.property('status', 'success');
+                result.should.have.property('locale', 'tr');
+                result.should.have.property('systemTime').and.is.a.Number();
+                done();
+            });
+        });
+    });
+
+    describe('TLSv_1_2Test', function () {
+
+        it('should success tls v1.2 secure protocol', function (done) {
+
+            options.uri = 'https://sandbox-api-tls12.iyzipay.com/';
+            var iyzipay = iyzipay = new Iyzipay(options);
+            iyzipay.apiTest.retrieve({}, function (err, result) {
+                should.not.exist(err);
+                should.exist(result);
+                result.should.have.property('status', 'success');
+                result.should.have.property('locale', 'tr');
+                result.should.have.property('systemTime').and.is.a.Number();
                 done();
             });
         });
