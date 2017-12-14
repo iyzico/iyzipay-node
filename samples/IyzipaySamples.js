@@ -187,6 +187,20 @@ describe('Iyzipay API Test', function () {
                 done();
             });
         });
+
+        it('should cancel payment with reason and description', function (done) {
+            iyzipay.cancel.create({
+                locale: Iyzipay.LOCALE.TR,
+                conversationId: '123456789',
+                paymentId: '2',
+                ip: '85.34.78.112',
+                reason: 'other',
+                description: 'customer requested for default sample'
+            }, function (err, result) {
+                console.log(err, result);
+                done();
+            });
+        });
     });
 
     describe('Card', function () {
@@ -712,9 +726,25 @@ describe('Iyzipay API Test', function () {
                 locale: Iyzipay.LOCALE.TR,
                 conversationId: '123456789',
                 paymentTransactionId: '1',
-                price: '0.5',
+                price: '0.2',
                 currency: Iyzipay.CURRENCY.TRY,
                 ip: '85.34.78.112'
+            }, function (err, result) {
+                console.log(err, result);
+                done();
+            });
+        });
+
+        it('should refund with reason and description', function (done) {
+            iyzipay.refund.create({
+                locale: Iyzipay.LOCALE.TR,
+                conversationId: '123456789',
+                paymentTransactionId: '2',
+                price: '0.5',
+                currency: Iyzipay.CURRENCY.TRY,
+                ip: '85.34.78.112',
+                reason: 'other',
+                description: 'customer requested for default sample'
             }, function (err, result) {
                 console.log(err, result);
                 done();
