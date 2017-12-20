@@ -192,7 +192,7 @@ describe('Iyzipay API Test', function () {
             iyzipay.cancel.create({
                 locale: Iyzipay.LOCALE.TR,
                 conversationId: '123456789',
-                paymentId: '2',
+                paymentId: '1',
                 ip: '85.34.78.112',
                 reason: Iyzipay.REFUND_REASON.OTHER,
                 description: 'customer requested for default sample'
@@ -726,7 +726,7 @@ describe('Iyzipay API Test', function () {
                 locale: Iyzipay.LOCALE.TR,
                 conversationId: '123456789',
                 paymentTransactionId: '1',
-                price: '0.2',
+                price: '0.5',
                 currency: Iyzipay.CURRENCY.TRY,
                 ip: '85.34.78.112'
             }, function (err, result) {
@@ -739,7 +739,7 @@ describe('Iyzipay API Test', function () {
             iyzipay.refund.create({
                 locale: Iyzipay.LOCALE.TR,
                 conversationId: '123456789',
-                paymentTransactionId: '2z',
+                paymentTransactionId: '1',
                 price: '0.5',
                 currency: Iyzipay.CURRENCY.TRY,
                 ip: '85.34.78.112',
