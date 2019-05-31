@@ -11,30 +11,10 @@ describe('Iyzipay API Test', function () {
         iyzipay = new Iyzipay(options);
         done();
     });
-    
+
     describe('ApiTest', function () {
 
         it('should test api', function (done) {
-            iyzipay.apiTest.retrieve({}, function (err, result) {
-                should.not.exist(err);
-                should.exist(result);
-                result.should.have.property('status', 'success');
-                result.should.have.property('locale', 'tr');
-                result.should.have.property('systemTime').and.is.a.Number();
-                done();
-            });
-        });
-    });
-
-    describe('TLSv_1_2Test', function () {
-
-        it('should success tls v1.2 secure protocol', function (done) {
-
-            // Clone options
-            var tlsOptions = JSON.parse(JSON.stringify(options));
-            tlsOptions.uri = 'https://sandbox-api-tls12.iyzipay.com/';
-
-            var iyzipay = new Iyzipay(tlsOptions);
             iyzipay.apiTest.retrieve({}, function (err, result) {
                 should.not.exist(err);
                 should.exist(result);
@@ -1091,7 +1071,7 @@ describe('Iyzipay API Test', function () {
                 done();
             });
         });
-        
+
         it('retrieve apm payment result', function (done) {
             var request = {
                 locale: Iyzipay.LOCALE.TR,
@@ -1104,5 +1084,5 @@ describe('Iyzipay API Test', function () {
                 done();
             });
         });
-     });   
+     });
 });
