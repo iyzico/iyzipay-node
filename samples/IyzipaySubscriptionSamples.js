@@ -226,17 +226,6 @@ describe('Iyzipay Subscription API Test', function () {
             });
         });
 
-        it('should delete customer', function (done) {
-            var deleteRequest = {
-                customerReferenceCode: '97c2c88f-f4fe-46d7-bfe3-3abab2520b96'
-            };
-
-            iyzipay.subscriptionCustomer.delete(deleteRequest, function (err, result) {
-                console.log(err, result);
-                done();
-            });
-        });
-
         it('should retrieve customer', function (done) {
             var retrieveRequest = {
                 customerReferenceCode: '3bb6d0b5-b53c-4732-a641-6fa3f8d39c21'
