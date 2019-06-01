@@ -88,7 +88,7 @@ describe('Iyzipay Subscription API Test', function () {
                 conversationId: '123456789',
                 productReferenceCode: '4ab2cadf-8ec5-4bc7-b21e-11abbc4df707',
                 name: 'name',
-                price: '10',
+                price: 10.99,
                 currencyCode: Iyzipay.CURRENCY.TRY,
                 paymentInterval: Iyzipay.SUBSCRIPTION_PRICING_PLAN_INTERVAL.MONTHLY,
                 paymentIntervalCount: 1,
@@ -114,6 +114,17 @@ describe('Iyzipay Subscription API Test', function () {
             };
 
             iyzipay.subscriptionPricingPlan.update(updateRequest, function (err, result) {
+                console.log(err, result);
+                done();
+            });
+        });
+
+        it('should delete subscription pricing plan', function (done) {
+            var deleteRequest = {
+                pricingPlanReferenceCode: '138e6963-a6a6-4823-8fab-202dae5b3fed'
+            };
+
+            iyzipay.subscriptionPricingPlan.delete(deleteRequest, function (err, result) {
                 console.log(err, result);
                 done();
             });
