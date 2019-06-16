@@ -8,6 +8,8 @@ node_js:
   - 4
   - 5
   - 6
+  - 8
+  - 10
 
 before_install:
   - npm install istanbul -g
@@ -24,7 +26,6 @@ deploy:
 
 script:
   - npm test
-  - npm run samples
 
 after_success:
   - npm run coveralls
