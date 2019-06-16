@@ -70,8 +70,8 @@ describe('Iyzipay Subscription API Test', function () {
             var retrieveRequest = {
                 locale: Iyzipay.LOCALE.EN,
                 conversationId: '123456789',
-                page: '1',
-                count: '10'
+                page: 1,
+                count: 10
             };
 
             iyzipay.subscriptionProduct.retrieveList(retrieveRequest, function (err, result) {
@@ -146,8 +146,8 @@ describe('Iyzipay Subscription API Test', function () {
                 locale: Iyzipay.LOCALE.EN,
                 conversationId: '123456789',
                 productReferenceCode: '4ab2cadf-8ec5-4bc7-b21e-11abbc4df707',
-                page: '1',
-                count: '10'
+                page: 1,
+                count: 10
             };
 
             iyzipay.subscriptionPricingPlan.retrieveList(retrieveRequest, function (err, result) {
@@ -241,8 +241,8 @@ describe('Iyzipay Subscription API Test', function () {
             var retrieveRequest = {
                 locale: Iyzipay.LOCALE.EN,
                 conversationId: '123456789',
-                page: '1',
-                count: '10'
+                page: 1,
+                count: 10
             };
 
             iyzipay.subscriptionCustomer.retrieveList(retrieveRequest, function (err, result) {
@@ -336,8 +336,8 @@ describe('Iyzipay Subscription API Test', function () {
             var searchRequest = {
                 locale: Iyzipay.LOCALE.EN,
                 conversationId: '123456789',
-                page: '1',
-                count: '10',
+                page: 1,
+                count: 10,
                 subscriptionReferenceCode: 'dca3e175-14c8-4b98-97de-283d692eaab2',
                 parentReferenceCode: 'dca3e175-14c8-4b98-97de-283d692eaab2',
                 customerReferenceCode: 'dca3e175-14c8-4b98-97de-283d692eaab2',
@@ -387,6 +387,17 @@ describe('Iyzipay Subscription API Test', function () {
             };
 
             iyzipay.subscriptionCheckoutForm.initialize(request, function (err, result) {
+                console.log(err, result);
+                done();
+            });
+        });
+
+        it('should retrieve  subscription result with checkout form token', function (done) {
+            var request = {
+                checkoutFormToken: 'c866e6b4-0f2d-4e9c-8adb-abc4f4bfa2ad'
+            };
+
+            iyzipay.subscriptionCheckoutForm.retrieve(request, function (err, result) {
                 console.log(err, result);
                 done();
             });
