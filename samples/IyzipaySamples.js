@@ -334,6 +334,21 @@ describe('Iyzipay API Test', function () {
         });
     });
 
+    describe('Universal Card Storage', function () {
+
+        it('should initialize universal card storage', function (done) {
+            var request = {
+                gsmNumber: '+905350000000',
+                email: 'email@email.com',
+            };
+
+            iyzipay.universalCardStorageInitialize.retrieve(request, function (err, result) {
+                console.log(err, result);
+                done();
+            });
+        });
+    });
+
     describe('Installment', function () {
 
         it('should retrieve installments', function (done) {
