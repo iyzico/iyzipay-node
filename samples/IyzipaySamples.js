@@ -338,6 +338,8 @@ describe('Iyzipay API Test', function () {
 
         it('should initialize universal card storage', function (done) {
             var request = {
+                locale: Iyzipay.LOCALE.TR,
+                conversationId: '123456789',
                 gsmNumber: '+905350000000',
                 email: 'email@email.com',
             };
