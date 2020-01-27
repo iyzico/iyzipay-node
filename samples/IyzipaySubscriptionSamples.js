@@ -352,6 +352,18 @@ describe('Iyzipay Subscription API Test', function () {
                 done();
             });
         });
+
+        it('should retrieve subscription list', function (done) {
+            var retrieveRequest = {
+                page: 1,
+                count: 10
+            };
+
+            iyzipay.subscriptionCustomer.retrieveList(retrieveRequest, function (err, result) {
+                console.log(err, result);
+                done();
+            });
+        });
     });
 
     describe('Subscription Initialize', function () {
