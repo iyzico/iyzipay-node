@@ -415,7 +415,50 @@ describe('Iyzipay Subscription API Test', function () {
                     cardNumber: '1111111111111111',
                     expireYear: '24',
                     expireMonth: '12',
-                    cvc: '999'
+                    cvc: '999',
+                    registerConsumerCard: true,
+                },
+                customer: {
+                    name: 'name',
+                    surname: 'surname',
+                    identityNumber: '11111111111',
+                    email: 'test123@test.com',
+                    gsmNumber: '+9005555555555',
+                    billingAddress: {
+                        contactName: 'Jane Doe',
+                        city: 'Istanbul',
+                        country: 'Turkey',
+                        address: 'Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1',
+                        zipCode: '34742'
+                    },
+                    shippingAddress: {
+                        contactName: 'Jane Doe',
+                        city: 'Istanbul',
+                        country: 'Turkey',
+                        address: 'Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1',
+                        zipCode: '34742'
+                    }
+                }
+            };
+
+            iyzipay.subscription.initialize(request, function (err, result) {
+                console.log(err, result);
+                done();
+            });
+        });
+
+        it('should subscription initialize with ucs token', function (done) {
+            var request = {
+                locale: Iyzipay.LOCALE.EN,
+                conversationId: '123456789',
+                callbackUrl: 'callbackUrl',
+                pricingPlanReferenceCode: '2af0eee5-22c3-40c8-91b8-7c64ccb9ab12',
+                subscriptionInitialStatus: Iyzipay.SUBSCRIPTION_INITIAL_STATUS.PENDING,
+                paymentCard: {
+                    ucsToken: 'c866e6b4-0f2d-4e9c-8adb-abc4f4bfa2ad',
+                    cardToken: 'c866e6b4-0f2d-4e9c-8adb-abc4f4bfa2ad',
+                    consumerToken: 'c866e6b4-0f2d-4e9c-8adb-abc4f4bfa2ad',
+                    registerConsumerCard: true,
                 },
                 customer: {
                     name: 'name',
