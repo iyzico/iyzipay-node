@@ -795,6 +795,22 @@ describe('Iyzipay API Test', function () {
         });
     });
 
+    describe('Payment Item', function() {
+        it('should update subMerchantPrice on a single payment transaction', function(done) {
+            iyzipay.paymentItem.update(
+                {
+                    paymentTransactionId: '12345678',
+                    subMerchantKey: 'sub merchant key',
+                    subMerchantPrice: '18.22'
+                },
+                function(err, result) {
+                    console.log(err, result);
+                    done();
+                }
+            );
+        });
+    });
+
     describe('Pecco', function () {
 
         it('should initialize pecco', function (done) {
