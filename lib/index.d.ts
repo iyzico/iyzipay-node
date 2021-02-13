@@ -5,24 +5,12 @@ interface config {
 }
 
 interface apiOptions {
-	retrieve(
-		request: any,
-	): { path: string; method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' };
-	create(
-		request: any,
-	): { path: string; method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' };
-	update(
-		request: any,
-	): { path: string; method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' };
-	delete(
-		request: any,
-	): { path: string; method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' };
-	retrieve(
-		request: any,
-	): { path: string; method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' };
-	retrieveList(
-		request: any,
-	): { path: string; method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' };
+	retrieve(request: any): { path: string; method: 'GET' };
+	create(request: any): { path: string; method: 'POST' };
+	update(request: any): { path: string; method: 'PUT' };
+	delete(request: any): { path: string; method: 'DELETE' };
+	retrieve(request: any): { path: string; method: 'GET' };
+	retrieveList(request: any): { path: string; method: 'GET' };
 }
 
 // * Add new resources to here
