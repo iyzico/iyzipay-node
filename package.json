@@ -1,48 +1,47 @@
 {
-	"name": "iyzipay",
-	"version": "2.0.48",
-	"description": "iyzipay api node.js client",
-	"typings": "lib/iyzipay.d.ts",
-	"main": "lib/Iyzipay.js",
-	"scripts": {
-		"test": "mocha $(find test -name '*Test.js')",
-		"samples": "mocha $(find samples -name '*Samples.js')",
-		"cover": "istanbul cover _mocha",
-		"coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/iyzico/iyzipay-node.git"
-	},
-	"keywords": [
-		"iyzico",
-		"iyzipay",
-		"iyzico.com",
-		"iyzipay node.js",
-		"iyzipay api",
-		"iyzipay api node.js client",
-		"iyzipay api node.js",
-		"payment processing"
-	],
-	"author": "iyzico <entegrasyon@iyzico.com> (https://iyzico.com/)",
-	"contributors": [
-		"Huseyin Babal <huseyinbabal88@gmail.com>"
-	],
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/iyzico/iyzipay-node/issues"
-	},
-	"homepage": "https://github.com/iyzico/iyzipay-node",
-	"dependencies": {
-		"request": "2.69.0"
-	},
-	"devDependencies": {
-		"async": "^1.5.2",
-		"coveralls": "^2.11.6",
-		"istanbul": "^0.4.2",
-		"mocha": "^2.4.5",
-		"mocha-lcov-reporter": "^1.0.0",
-		"should": "^8.2.1",
-		"supertest": "^1.1.0"
-	}
+  "name": "iyzipay",
+  "version": "2.0.48",
+  "description": "iyzipay api node.js client",
+  "main": "lib/Iyzipay.js",
+  "scripts": {
+    "test": "mocha $(find test -name '*Test.js')",
+    "samples": "mocha $(find samples -name '*Samples.js')",
+    "cover": "istanbul cover _mocha",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iyzico/iyzipay-node.git"
+  },
+  "keywords": [
+    "iyzico",
+    "iyzipay",
+    "iyzico.com",
+    "iyzipay node.js",
+    "iyzipay api",
+    "iyzipay api node.js client",
+    "iyzipay api node.js",
+    "payment processing"
+  ],
+  "author": "iyzico <entegrasyon@iyzico.com> (https://iyzico.com/)",
+  "contributors": [
+    "Huseyin Babal <huseyinbabal88@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iyzico/iyzipay-node/issues"
+  },
+  "homepage": "https://github.com/iyzico/iyzipay-node",
+  "dependencies": {
+    "request": "2.69.0"
+  },
+  "devDependencies": {
+    "async": "^1.5.2",
+    "coveralls": "^2.11.6",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "mocha-lcov-reporter": "^1.0.0",
+    "should": "^8.2.1",
+    "supertest": "^1.1.0"
+  }
 }
