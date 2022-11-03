@@ -49,18 +49,8 @@ interface RetrieveList {
 	count: number;
 }
 
-interface ResourceResponse {
-	path: string;
-	method: 'GET' | 'POST' | 'PUT' | 'DELETE';
-	requestModel?: string;
-	pathVariables?: string;
-}
-
 export interface ApiTest {
-	retrieve(
-		{},
-		callback: (err: any, result: DefaultResult) => void
-	): ResourceResponse;
+	retrieve({}, callback: (err: any, result: DefaultResult) => void);
 }
 
 interface ApprovalResult extends DefaultResult {
@@ -73,7 +63,7 @@ export interface Approval {
 			paymentTransactionId: string;
 		},
 		callback: (err: any, result: ApprovalResult) => void
-	): ResourceResponse;
+	);
 }
 
 export interface Disapproval {
@@ -82,7 +72,7 @@ export interface Disapproval {
 			paymentTransactionId: string;
 		},
 		callback: (err: any, result: ApprovalResult) => void
-	): ResourceResponse;
+	);
 }
 
 interface BinNumberResult extends DefaultResult {
@@ -101,7 +91,7 @@ export interface BinNumber {
 			binNumber: string;
 		},
 		callback: (err: any, result: BinNumberResult) => void
-	): ResourceResponse;
+	);
 }
 
 export interface BKMInitialize {
@@ -120,21 +110,26 @@ export interface BKMInitialize {
 		},
 		callback: (
 			err: any,
-			result: DefaultResult & Token & {
-				htmlContent: string;
-				redirectUrl: string;
-			}
+			result: DefaultResult &
+				Token & {
+					htmlContent: string;
+					redirectUrl: string;
+				}
 		) => void
-	): ResourceResponse;
+	);
 }
 
 export interface BKM {
 	retrieve(
 		request: DefaultRequest & Token,
-		callback: (err: any, result: PaymentResult & Token & {
-			paymentStatus: string;
-		}) => void
-	): ResourceResponse;
+		callback: (
+			err: any,
+			result: PaymentResult &
+				Token & {
+					paymentStatus: string;
+				}
+		) => void
+	);
 }
 
 export interface Cancel {
@@ -145,14 +140,17 @@ export interface Cancel {
 			reason?: IyzipayRefundReason;
 			description?: string;
 		},
-		callback: (err: any, result: DefaultResult & {
-			price: number;
-			currency?: IyzipayCurrency;
-			paymentId: number;
-			authCode?: string;
-			hostReference?: string;
-		}) => void
-	): ResourceResponse;
+		callback: (
+			err: any,
+			result: DefaultResult & {
+				price: number;
+				currency?: IyzipayCurrency;
+				paymentId: number;
+				authCode?: string;
+				hostReference?: string;
+			}
+		) => void
+	);
 }
 
 interface CardResult extends DefaultResult {
@@ -182,14 +180,14 @@ export interface Card {
 			externalId?: string;
 		},
 		callback: (err: any, result: CardResult) => void
-	): ResourceResponse;
+	);
 	delete(
 		request: DefaultRequest & {
 			cardToken: string;
 			cardUserKey: string;
 		},
 		callback: (err: any, result: DefaultResult) => void
-	): ResourceResponse;
+	);
 }
 
 interface CardListResult extends DefaultResult {
@@ -213,7 +211,7 @@ export interface CardList {
 			cardUserKey: string;
 		},
 		callback: (err: any, result: CardListResult) => void
-	): ResourceResponse;
+	);
 }
 
 export interface CheckoutFormInitialize {
@@ -234,12 +232,13 @@ export interface CheckoutFormInitialize {
 		},
 		callback: (
 			err: any,
-			result: DefaultResult & Token & {
-				checkoutFormContent: string;
-				paymentPageUrl: string;
-			}
+			result: DefaultResult &
+				Token & {
+					checkoutFormContent: string;
+					paymentPageUrl: string;
+				}
 		) => void
-	): ResourceResponse;
+	);
 }
 
 interface CheckoutFormResult extends PaymentResult {
@@ -253,7 +252,7 @@ export interface CheckoutForm {
 	retrieve(
 		request: DefaultRequest & Token,
 		callback: (err: any, result: CheckoutFormResult) => void
-	): ResourceResponse;
+	);
 }
 
 export interface UniversalCardStorageInitialize {
@@ -263,7 +262,7 @@ export interface UniversalCardStorageInitialize {
 			email: string;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 }
 
 interface InstallmentInfoResult extends DefaultResult {
@@ -291,7 +290,7 @@ export interface InstallmentInfo {
 			price: number;
 		},
 		callback: (err: any, result: InstallmentInfoResult) => void
-	): ResourceResponse;
+	);
 }
 
 interface PaymentRequest extends DefaultRequest {
@@ -341,29 +340,30 @@ interface PaymentResult extends DefaultResult {
 	authCode: string;
 	phase: string;
 	hostReference: string;
-	itemTransactions: Payout & {
-		itemId: string;
-		paymentTransactionId: string;
-		transactionStatus: number;
-		price: number;
-		merchantCommissionRate: number;
-		merchantCommissionRateAmount: number;
-		blockageRate: number;
-		blockageResolvedDate: string;
-		subMerchantPrice: number;
-		subMerchantPayoutRate: number;
-		merchantPayoutAmount: number;
-		convertedPayout: Payout & {
-			currency: IyzipayCurrency;
-		}
-	}[];
+	itemTransactions: Payout &
+		{
+			itemId: string;
+			paymentTransactionId: string;
+			transactionStatus: number;
+			price: number;
+			merchantCommissionRate: number;
+			merchantCommissionRateAmount: number;
+			blockageRate: number;
+			blockageResolvedDate: string;
+			subMerchantPrice: number;
+			subMerchantPayoutRate: number;
+			merchantPayoutAmount: number;
+			convertedPayout: Payout & {
+				currency: IyzipayCurrency;
+			};
+		}[];
 }
 
 export interface Payment {
 	create(
 		request: PaymentRequest,
 		callback: (err: any, result: PaymentResult) => void
-	): ResourceResponse;
+	);
 	retrieve(
 		request: DefaultRequest & {
 			ip: string;
@@ -371,7 +371,7 @@ export interface Payment {
 			paymentConversationId?: string;
 		},
 		callback: (err: any, result: PaymentResult) => void
-	): ResourceResponse;
+	);
 }
 
 export interface PaymentItem {
@@ -381,7 +381,7 @@ export interface PaymentItem {
 				paymentTransactionId: string;
 			},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 }
 
 export interface Refund {
@@ -405,7 +405,7 @@ export interface Refund {
 				retryable: boolean;
 			}
 		) => void
-	): ResourceResponse;
+	);
 }
 
 export interface RefundToBalance {}
@@ -416,7 +416,7 @@ export interface PayoutCompletedTransactionList {
 			date: Date;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 }
 
 interface SubMerchantResult extends DefaultResult {
@@ -438,7 +438,7 @@ export interface SubMerchant {
 			subMerchantType: IyzipaySubMerchantType;
 		},
 		callback: (err: any, SubMerchantResult) => void
-	): ResourceResponse;
+	);
 	update(
 		request: DefaultRequest & {
 			name?: string;
@@ -451,13 +451,13 @@ export interface SubMerchant {
 			subMerchantKey: string;
 		},
 		callback: (err: any, result: DefaultResult) => void
-	): ResourceResponse;
+	);
 	retrieve(
 		request: DefaultRequest & {
 			subMerchantExternalId: string;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 }
 
 export interface ThreedsInitialize {
@@ -471,7 +471,7 @@ export interface ThreedsInitialize {
 				htmlContent: string;
 			}
 		) => void
-	): ResourceResponse;
+	);
 }
 
 export interface ThreedsPayment {
@@ -481,7 +481,7 @@ export interface ThreedsPayment {
 			conversationData?: string;
 		},
 		callback: (err: any, result: PaymentResult) => void
-	): ResourceResponse;
+	);
 }
 
 interface SubscriptionRequest {
@@ -500,12 +500,13 @@ export interface SubscriptionProduct {
 		},
 		callback: (
 			err: any,
-			result: SubscriptionRequest & {
-				description?: string;
-				pricingPlans: any[];
-			}
+			result: SubscriptionRequest &
+				DefaultResult & {
+					description?: string;
+					pricingPlans: any[];
+				}
 		) => void
-	): ResourceResponse;
+	);
 	update(
 		request: DefaultRequest & {
 			productReferenceCode: string;
@@ -513,23 +514,23 @@ export interface SubscriptionProduct {
 			description?: string;
 		},
 		callback: (err: any, result: DefaultResult) => void
-	): ResourceResponse;
+	);
 	delete(
 		request: DefaultRequest & {
 			productReferenceCode: string;
 		},
 		callback: (err: any, result: DefaultResult) => void
-	): ResourceResponse;
+	);
 	retrieve(
 		request: DefaultRequest & {
 			productReferenceCode: string;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 	retrieveList(
 		request: DefaultRequest & RetrieveList,
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 }
 
 interface SubscriptionPlanRequest {
@@ -556,7 +557,7 @@ export interface SubscriptionPricingPlan {
 					};
 				}
 		) => void
-	): ResourceResponse;
+	);
 	update(
 		request: DefaultRequest & {
 			pricingPlanReferenceCode: string;
@@ -564,25 +565,26 @@ export interface SubscriptionPricingPlan {
 			trialPeriodDays?: number;
 		},
 		callback: (err: any, result: DefaultResult) => void
-	): ResourceResponse;
+	);
 	delete(
 		request: DefaultRequest & {
 			pricingPlanReferenceCode: string;
 		},
 		callback: (err: any, result: DefaultResult) => void
-	): ResourceResponse;
+	);
 	retrieve(
 		request: DefaultRequest & {
 			pricingPlanReferenceCode: string;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 	retrieveList(
-		request: DefaultRequest & RetrieveList & {
-			pricingPlanReferenceCode: string;
-		},
+		request: DefaultRequest &
+			RetrieveList & {
+				pricingPlanReferenceCode: string;
+			},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 }
 
 export interface SubscriptionCustomer {
@@ -597,7 +599,7 @@ export interface SubscriptionCustomer {
 			shippingAddress: IyzipayBillingShipping;
 		},
 		callback: (err: any, result: DefaultResult) => void
-	): ResourceResponse;
+	);
 	update(
 		request: DefaultRequest & {
 			customerReferenceCode: string;
@@ -610,17 +612,17 @@ export interface SubscriptionCustomer {
 			shippingAddress?: IyzipayBillingShipping;
 		},
 		callback: (err: any, result: DefaultResult) => void
-	): ResourceResponse;
+	);
 	retrieve(
 		request: DefaultRequest & {
 			customerReferenceCode: string;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 	retrieveList(
 		request: DefaultRequest & RetrieveList,
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 }
 
 export interface SubscriptionCard {
@@ -630,14 +632,14 @@ export interface SubscriptionCard {
 			callbackUrl: string;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 	updateWithSubscriptionReferenceCode(
 		request: DefaultRequest & {
 			subscriptionReferenceCode: string;
 			callbackUrl: string;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 }
 
 export interface SubscriptionPayment {
@@ -646,7 +648,7 @@ export interface SubscriptionPayment {
 			referenceCode: string;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 }
 
 export interface Subscription {
@@ -658,19 +660,19 @@ export interface Subscription {
 			customer: IyzipayCustomer;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 	cancel(
 		request: DefaultRequest & {
 			subscriptionReferenceCode: string;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 	activate(
 		request: DefaultRequest & {
 			subscriptionReferenceCode: string;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 	upgrade(
 		request: DefaultRequest & {
 			subscriptionReferenceCode: string;
@@ -679,25 +681,26 @@ export interface Subscription {
 			useTrial?: boolean;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 	retrieve(
 		request: DefaultRequest & {
 			subscriptionReferenceCode: string;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 	search(
-		request: DefaultRequest & RetrieveList & {
-			subscriptionReferenceCode: string;
-			parentReferenceCode: string;
-			customerReferenceCode: string;
-			pricingPlanReferenceCode: string;
-			subscriptionStatus: IyzipaySubscriptionStatus;
-			startDate: string;
-			endDate: string;
-		},
+		request: DefaultRequest &
+			RetrieveList & {
+				subscriptionReferenceCode: string;
+				parentReferenceCode: string;
+				customerReferenceCode: string;
+				pricingPlanReferenceCode: string;
+				subscriptionStatus: IyzipaySubscriptionStatus;
+				startDate: string;
+				endDate: string;
+			},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 }
 
 export interface SubscriptionCheckoutForm {
@@ -714,13 +717,14 @@ export interface SubscriptionCheckoutForm {
 		},
 		callback: (
 			err: any,
-			result: DefaultResult & Token & {
-				checkoutFormContent: string;
-			}
+			result: DefaultResult &
+				Token & {
+					checkoutFormContent: string;
+				}
 		) => void
-	): ResourceResponse;
+	);
 	retrieve(
-		request: DefaultRequest & Token,
+		request: DefaultRequest & { token: string },
 		callback: (
 			err: any,
 			result: DefaultResult & {
@@ -736,7 +740,7 @@ export interface SubscriptionCheckoutForm {
 				startDate?: number;
 			}
 		) => void
-	): ResourceResponse;
+	);
 }
 
 export interface SubscriptionExistingCustomer {
@@ -746,7 +750,7 @@ export interface SubscriptionExistingCustomer {
 			customerReferenceCode: string;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 }
 
 export interface SettlementToBalance {
@@ -758,12 +762,13 @@ export interface SettlementToBalance {
 		},
 		callback: (
 			err: any,
-			result: DefaultResult & Token & {
-				url: string;
-				isSettingsAllTime: boolean;
-			}
+			result: DefaultResult &
+				Token & {
+					url: string;
+					isSettingsAllTime: boolean;
+				}
 		) => void
-	): ResourceResponse;
+	);
 }
 
 export interface RefundToBalance {
@@ -773,7 +778,7 @@ export interface RefundToBalance {
 			callbackUrl: string;
 		},
 		callback: (err: any, result: any) => void
-	): ResourceResponse;
+	);
 }
 
 export interface PeccoInitialize {
@@ -782,14 +787,14 @@ export interface PeccoInitialize {
 			callbackUrl: string;
 		},
 		callback: (err: any, result: PaymentResult & Token) => void
-	): ResourceResponse
+	);
 }
 
 export interface PeccoPayment {
 	create(
 		request: DefaultRequest & Token,
-		callback: (err: any, result: DefaultResult) => void,
-	): ResourceResponse;
+		callback: (err: any, result: DefaultResult) => void
+	);
 }
 
 export interface APM {
@@ -802,7 +807,7 @@ export interface APM {
 			merchantErrorUrl: string;
 			apmType: IyzipayAPMType;
 		},
-		callback: (err: any, result: PaymentResult & {}) => void,
-	): ResourceResponse;
-	retrieve(): ResourceResponse;
+		callback: (err: any, result: PaymentResult & {}) => void
+	);
+	retrieve();
 }

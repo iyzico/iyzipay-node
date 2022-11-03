@@ -136,7 +136,7 @@ export interface IyzipayCustomer {
 	surname: string;
 	identityNumber: string;
 	email: string;
-	gsmNumber?: string;
+	gsmNumber: string;
 	billingAddress: IyzipayBillingShipping;
 	shippingAddress: IyzipayBillingShipping;
 }
@@ -176,9 +176,7 @@ declare module 'iyzipay' {
 
 		private _config: IyzipayConfig;
 
-		public static readonly LOCALE: {
-			[key: string]: IyzipayLocale;
-		} = {
+		public static readonly LOCALE: { [key: string]: IyzipayLocale } = {
 			TR: 'tr',
 			EN: 'en',
 		};
