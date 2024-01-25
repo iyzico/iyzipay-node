@@ -1444,8 +1444,6 @@ export interface ISubscriptionExistingCustomer {
 declare module "iyzipay" {
 
     namespace Iyzipay {
-
-        /* MODULE ENDS */
         const LOCALE: ILOCALE;
         const PAYMENT_GROUP: IPAYMENT_GROUP;
         const BASKET_ITEM_TYPE: IBASKET_ITEM_TYPE;
@@ -1461,14 +1459,8 @@ declare module "iyzipay" {
         const SUBSCRIPTION_INITIAL_STATUS: ISUBSCRIPTION_INITIAL_STATUS;
     }
 
-    // Define Iyzipay as a class
     class Iyzipay {
         constructor(options?: IConfigOptions);
-
-        // If Iyzipay has methods, define them here. Example:
-        // someMethod(): void;
-
-        /* MODULE */
         apiTest: IApiTest;
         approval: IApproval;
         disapproval: IDisapproval;
