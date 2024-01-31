@@ -1588,5 +1588,5 @@ declare module "iyzipay" {
         const SubscriptionStatus: IsubscriptionStatus;
         const SubscriptionInitialStatus: IsubscriptionInitialStatus;
     }
-    export = Iyzipay;
+    export default Iyzipay;
 }
