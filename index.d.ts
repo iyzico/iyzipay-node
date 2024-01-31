@@ -1534,7 +1534,7 @@ interface SubscriptionExistingCustomer {
 }
 
 declare module "iyzipay" {
-    declare class Iyzipay {
+    class Iyzipay {
         constructor(options?: ConfigOptions);
         apiTest: ApiTest;
         approval: Approval;
@@ -1573,7 +1573,7 @@ declare module "iyzipay" {
         subscriptionExistingCustomer: SubscriptionExistingCustomer;
     }
 
-    declare namespace Iyzipay {
+    namespace Iyzipay {
         const Locale: Ilocale;
         const PaymentGroup: IpaymentGroup;
         const BasketItemType: IbasketItemType;
