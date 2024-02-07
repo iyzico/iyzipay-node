@@ -33,15 +33,15 @@
   },
   "homepage": "https://github.com/iyzico/iyzipay-node",
   "dependencies": {
-    "request": "2.69.0"
+    "request": "^2.88.0"
   },
   "devDependencies": {
-    "async": "^1.5.2",
-    "coveralls": "^2.11.6",
+    "async": "^3.1.0",
+    "coveralls": "^3.0.5",
     "istanbul": "^0.4.2",
-    "mocha": "^2.4.5",
+    "mocha": "^6.2.0",
     "mocha-lcov-reporter": "^1.0.0",
-    "should": "^8.2.1",
-    "supertest": "^1.1.0"
+    "should": "^13.2.3",
+    "supertest": "^4.0.2"
   }
 }
