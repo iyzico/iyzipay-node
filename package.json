@@ -36,7 +36,7 @@
     "request": "^2.88.2"
   },
   "devDependencies": {
-    "async": "^1.5.2",
+    "async": "^3.2.5",
     "coveralls": "^2.11.6",
     "istanbul": "^0.4.2",
     "mocha": "^10.2.0",
