@@ -4,8 +4,8 @@
   "description": "iyzipay api node.js client",
   "main": "lib/Iyzipay.js",
   "scripts": {
-    "test": "mocha $(find test -name '*Test.js')",
-    "samples": "mocha $(find samples -name '*Samples.js')",
+    "test": "mocha test/**/*Test.js",
+    "samples": "mocha samples/**/*Samples.js",
     "cover": "istanbul cover _mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
@@ -39,9 +39,8 @@
     "async": "^1.5.2",
     "coveralls": "^2.11.6",
     "istanbul": "^0.4.2",
-    "mocha": "^2.4.5",
+    "mocha": "^10.2.0",
     "mocha-lcov-reporter": "^1.0.0",
-    "should": "^8.2.1",
-    "supertest": "^1.1.0"
+    "should": "^8.2.1"
   }
 }
