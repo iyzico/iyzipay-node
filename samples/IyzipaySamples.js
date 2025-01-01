@@ -1025,6 +1025,7 @@ describe('Iyzipay API Test', function () {
         it('should update subMerchantPrice on a single payment transaction', function (done) {
             iyzipay.paymentItem.update(
                 {
+                    conversationId: "123456789",
                     paymentTransactionId: '12345678',
                     subMerchantKey: 'sub merchant key',
                     subMerchantPrice: '18.22'
