@@ -1480,6 +1480,25 @@ describe('Iyzipay API Test', function () {
             });
         });
 
+        it('should create threeds v2 payment', function (done) {
+            iyzipay.threedsV2Payment.create({
+                conversationId: '123456789',
+                locale: Iyzipay.LOCALE.TR,
+                paymentId: '1',
+                paidPrice: '1.2',
+                basketId: 'B67832',
+                currency: Iyzipay.CURRENCY.TRY
+            }, function (err, result) {
+                console.log(err, result);
+
+                if (result.status === 'success') {
+                    const { paymentId, currency, basketId, conversationId, paidPrice, price, signature } = result;
+                    verifySignature([paymentId, currency, basketId, conversationId, paidPrice, price], secretKey, signature);
+                }
+                done();
+            });
+        });
+
         it('should initialize threeds preauth', function (done) {
             var request = {
                 locale: Iyzipay.LOCALE.TR,
