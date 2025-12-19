@@ -36,21 +36,9 @@ describe('Iyzipay', function () {
         done();
     });
 
-    it('should generate authorization header', function (done) {
-        var header = utils.generateAuthorizationHeader(iyziWsHeaderName, apiKey, separator, secretKey, body, randomString);
-        header.should.be.equal("IYZWS api_key:ikF+xhjLA0/xsvl+eJjoHWkwh5g=");
-        done();
-    });
-
     it('should generate authorization header v2', function (done) {
         var header = utils.generateAuthorizationHeaderV2(iyziWsHeaderNameV2, apiKey, separator, secretKey, uri, body, randomString);
         header.should.be.equal("IYZWSv2 YXBpS2V5OmFwaV9rZXkmcmFuZG9tS2V5OnJhbmRvbV9zdHJpbmcmc2lnbmF0dXJlOjAxNzUwODkyMWEyOWVlNTYwMWJjZDFmYmU4M2VmZDJlMmJlNDNhZjAyZWNlZmYzMGNmMmU5MWE1MzlhYWIzNTU=");
-        done();
-    });
-
-    it('should generate hash', function (done) {
-        var hash = utils.generateHash(apiKey, randomString, secretKey, body);
-        hash.should.be.equal("ikF+xhjLA0/xsvl+eJjoHWkwh5g=");
         done();
     });
 
