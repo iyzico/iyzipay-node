@@ -124,7 +124,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Collectibles',
                         category2: 'Accessories',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.3'
+                        price: '0.3',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.27'
                     },
                     {
                         id: 'BI102',
@@ -132,7 +134,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Game',
                         category2: 'Online Game Items',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.VIRTUAL,
-                        price: '0.5'
+                        price: '0.5',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.42'
                     },
                     {
                         id: 'BI103',
@@ -140,7 +144,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Electronics',
                         category2: 'Usb / Cable',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.2'
+                        price: '0.2',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.18'
                     }
                 ]
             };
@@ -314,7 +320,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Collectibles',
                         category2: 'Accessories',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.3'
+                        price: '0.3',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.27'
                     },
                     {
                         id: 'BI102',
@@ -322,7 +330,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Game',
                         category2: 'Online Game Items',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.VIRTUAL,
-                        price: '0.5'
+                        price: '0.5',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.42'
                     },
                     {
                         id: 'BI103',
@@ -330,7 +340,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Electronics',
                         category2: 'Usb / Cable',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.2'
+                        price: '0.2',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.18'
                     }
                 ]
             };
@@ -409,7 +421,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Collectibles',
                         category2: 'Accessories',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.3'
+                        price: '0.3',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.27'
                     },
                     {
                         id: 'BI102',
@@ -417,7 +431,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Game',
                         category2: 'Online Game Items',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.VIRTUAL,
-                        price: '0.5'
+                        price: '0.5',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.42'
                     },
                     {
                         id: 'BI103',
@@ -425,7 +441,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Electronics',
                         category2: 'Usb / Cable',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.2'
+                        price: '0.2',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.18'
                     }
                 ]
             };
@@ -531,7 +549,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Collectibles',
                         category2: 'Accessories',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.3'
+                        price: '0.3',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.27'
                     },
                     {
                         id: 'BI102',
@@ -539,7 +559,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Game',
                         category2: 'Online Game Items',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.VIRTUAL,
-                        price: '0.5'
+                        price: '0.5',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.42'
                     },
                     {
                         id: 'BI103',
@@ -547,7 +569,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Electronics',
                         category2: 'Usb / Cable',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.2'
+                        price: '0.2',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.18'
                     }
                 ]
             };
@@ -618,7 +642,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Collectibles',
                         category2: 'Accessories',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.3'
+                        price: '0.3',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.27'
                     },
                     {
                         id: 'BI102',
@@ -626,7 +652,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Game',
                         category2: 'Online Game Items',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.VIRTUAL,
-                        price: '0.5'
+                        price: '0.5',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.42'
                     },
                     {
                         id: 'BI103',
@@ -634,7 +662,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Electronics',
                         category2: 'Usb / Cable',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.2'
+                        price: '0.2',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.18'
                     }
                 ]
             };
@@ -789,7 +819,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Collectibles',
                         category2: 'Accessories',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.3'
+                        price: '0.3',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.27'
                     },
                     {
                         id: 'BI102',
@@ -797,7 +829,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Game',
                         category2: 'Online Game Items',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.VIRTUAL,
-                        price: '0.5'
+                        price: '0.5',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.42'
                     },
                     {
                         id: 'BI103',
@@ -805,7 +839,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Electronics',
                         category2: 'Usb / Cable',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.2'
+                        price: '0.2',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.18'
                     }
                 ]
             };
@@ -873,7 +909,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Collectibles',
                         category2: 'Accessories',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.3'
+                        price: '0.3',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.27'
                     },
                     {
                         id: 'BI102',
@@ -881,7 +919,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Game',
                         category2: 'Online Game Items',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.VIRTUAL,
-                        price: '0.5'
+                        price: '0.5',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.42'
                     },
                     {
                         id: 'BI103',
@@ -889,7 +929,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Electronics',
                         category2: 'Usb / Cable',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.2'
+                        price: '0.2',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.18'
                     }
                 ]
             };
@@ -955,7 +997,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Collectibles',
                         category2: 'Accessories',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.3'
+                        price: '0.3',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.27'
                     },
                     {
                         id: 'BI102',
@@ -963,7 +1007,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Game',
                         category2: 'Online Game Items',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.VIRTUAL,
-                        price: '0.5'
+                        price: '0.5',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.42'
                     },
                     {
                         id: 'BI103',
@@ -971,7 +1017,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Electronics',
                         category2: 'Usb / Cable',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.2'
+                        price: '0.2',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.18'
                     }
                 ]
             };
@@ -1377,7 +1425,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Collectibles',
                         category2: 'Accessories',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.3'
+                        price: '0.3',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.27'
                     },
                     {
                         id: 'BI102',
@@ -1385,7 +1435,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Game',
                         category2: 'Online Game Items',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.VIRTUAL,
-                        price: '0.5'
+                        price: '0.5',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.42'
                     },
                     {
                         id: 'BI103',
@@ -1393,7 +1445,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Electronics',
                         category2: 'Usb / Cable',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.2'
+                        price: '0.2',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.18'
                     }
                 ]
             };
@@ -1482,7 +1536,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Collectibles',
                         category2: 'Accessories',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.3'
+                        price: '0.3',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.27'
                     },
                     {
                         id: 'BI102',
@@ -1490,7 +1546,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Game',
                         category2: 'Online Game Items',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.VIRTUAL,
-                        price: '0.5'
+                        price: '0.5',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.42'
                     },
                     {
                         id: 'BI103',
@@ -1498,7 +1556,9 @@ describe('Iyzipay API Test', function () {
                         category1: 'Electronics',
                         category2: 'Usb / Cable',
                         itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                        price: '0.2'
+                        price: '0.2',
+                        subMerchantKey: 'sub merchant key',
+                        subMerchantPrice: '0.18'
                     }
                 ]
             };
