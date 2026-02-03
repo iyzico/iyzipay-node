@@ -234,4 +234,37 @@ describe('IyziLink Product', function () {
             done();
         });
     });
+
+    it('should delete product', function (done) {
+        const iyzipay = new Iyzipay({
+            uri: 'http://uri',
+            apiKey: 'apiKey',
+            secretKey: 'secretKey'
+        });
+
+        const request = {
+            conversationId: "123456",
+            locale: "en",
+            linkToken: "Wx0"
+        };
+
+        const mockResponse = {
+            status: "success",
+            systemTime: 1687825929316,
+            locale: "en",
+            conversationId: "123456"
+        };
+
+        iyzipay.iyziLink._request = function (method, cb) {
+            should.equal(method, 'delete');
+            cb(null, null, mockResponse);
+        };
+
+        iyzipay.iyziLink.delete(request, function (err, result) {
+            should.not.exist(err);
+            should.exist(result);
+            result.status.should.equal('success');
+            done();
+        });
+    });
 });
