@@ -52,7 +52,7 @@ describe('IyziLink Product', function () {
         });
     });
 
-    it('should return token from successful fastlink response', function (done) {
+    it('should return data.token from successful fastlink response', function (done) {
         const iyzipay = new Iyzipay({
             uri: 'http://uri',
             apiKey: 'apiKey',
@@ -85,6 +85,54 @@ describe('IyziLink Product', function () {
         };
 
         iyzipay.iyziLink.fastlink(request, function (err, result) {
+            should.not.exist(err);
+            should.exist(result);
+            should.exist(result.data);
+            result.data.token.should.equal('WxI');
+            done();
+        });
+    });
+
+    it('should return data.token from successful update response', function (done) {
+        const iyzipay = new Iyzipay({
+            uri: 'http://uri',
+            apiKey: 'apiKey',
+            secretKey: 'secretKey'
+        });
+
+        const request = {
+            conversationId: "123456",
+            locale: "en",
+            name: "Updated Product",
+            description: "10 Books",
+            price: "60.00",
+            currencyCode: "TRY",
+            encodedImageFile: "/9j/4AAQSkZJRgABAQEAYABgAAD...",
+            addressIgnorable: false,
+            installmentRequested: true,
+            stockEnabled: true,
+            stockCount: 12,
+            linkToken: "WxI"
+        };
+
+        const mockResponse = {
+            status: "success",
+            locale: "en",
+            systemTime: 1687827915258,
+            conversationId: "123456",
+            data: {
+                token: "WxI",
+                url: "https://sandbox.iyzi.link/WxI",
+                imageUrl: "https://sandbox-img.iyzi.link/Wx/I.jpg"
+            }
+        };
+
+        iyzipay.iyziLink._request = function (method, cb) {
+            should.equal(method, 'update');
+            cb(null, null, mockResponse);
+        };
+
+        iyzipay.iyziLink.update(request, function (err, result) {
             should.not.exist(err);
             should.exist(result);
             should.exist(result.data);

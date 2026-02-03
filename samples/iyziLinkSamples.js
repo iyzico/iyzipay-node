@@ -57,5 +57,30 @@ describe('IyziLink API Test', function () {
                 done();
             });
         });
+
+        it('should update an IyziLink product', function (done) {
+            const request = {
+                locale: "en",
+                conversationId: "123456",
+                name: "Updated Product",
+                description: "10 Books",
+                price: "60.00",
+                currencyCode: "TRY",
+                encodedImageFile: utils.encodeFileBase64(path.join(__dirname, 'images', 'image.png')),
+                addressIgnorable: false,
+                installmentRequested: true,
+                stockEnabled: true,
+                stockCount: 12,
+                linkToken: "AAI0pA"
+            };
+
+            iyzipay.iyziLink.update(request, function (err, result) {
+                console.log('err:', err);
+                console.log('result:', result);
+                should.not.exist(err);
+                should.exist(result);
+                done();
+            });
+        });
     });
 });
