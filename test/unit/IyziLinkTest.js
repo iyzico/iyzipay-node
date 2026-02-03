@@ -267,4 +267,70 @@ describe('IyziLink Product', function () {
             done();
         });
     });
+
+    it('should retrieve product list', function (done) {
+        const iyzipay = new Iyzipay({
+            uri: 'http://uri',
+            apiKey: 'apiKey',
+            secretKey: 'secretKey'
+        });
+
+        const request = {
+            conversationId: "123456",
+            locale: "en",
+            page: 1,
+            count: 10
+        };
+
+        const mockResponse = {
+            status: "success",
+            locale: "en",
+            systemTime: 1756284905529,
+            conversationId: "123456789",
+            data: {
+                listingReviewed: true,
+                totalCount: 11,
+                currentPage: 1,
+                pageCount: 11,
+                items: [
+                    {
+                        name: "link",
+                        conversationId: "conversationId",
+                        description: "description",
+                        price: "80.00000000",
+                        currencyId: 1,
+                        currencyCode: "TRY",
+                        token: "AAF9Bw",
+                        productType: "IYZILINK",
+                        productStatus: "ACTIVE",
+                        merchantId: 3410007,
+                        url: "https://sandbox.iyzi.link/AAF9Bw",
+                        imageUrl: "https://sandbox-img.iyzi.link/AA/F9Bw+V3.jpg",
+                        addressIgnorable: true,
+                        soldCount: 1,
+                        installmentRequested: false,
+                        stockEnabled: true,
+                        stockCount: 3,
+                        presetPriceValues: [],
+                        flexibleLink: false,
+                        categoryType: "UNKNOWN"
+                    }
+                ]
+            }
+        };
+
+        iyzipay.iyziLink._request = function (method, cb) {
+            should.equal(method, 'retrieveList');
+            cb(null, null, mockResponse);
+        };
+
+        iyzipay.iyziLink.retrieveList(request, function (err, result) {
+            should.not.exist(err);
+            should.exist(result);
+            should.exist(result.data);
+            result.data.items.length.should.equal(1);
+            result.data.items[0].token.should.equal('AAF9Bw');
+            done();
+        });
+    });
 });

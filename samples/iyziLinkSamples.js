@@ -131,5 +131,22 @@ describe('IyziLink API Test', function () {
                 done();
             });
         });
+
+        it('should retrieve IyziLink product list', function (done) {
+            const request = {
+                locale: "en",
+                conversationId: "123456",
+                page: 1,
+                count: 10
+            };
+
+            iyzipay.iyziLink.retrieveList(request, function (err, result) {
+                console.log('err:', err);
+                console.log('result:', result);
+                should.not.exist(err);
+                should.exist(result);
+                done();
+            });
+        });
     });
 });
