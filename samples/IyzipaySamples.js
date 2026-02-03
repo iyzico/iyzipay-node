@@ -1,5 +1,4 @@
 const should = require('should');
-const assert = require('assert');
 const Iyzipay = require('../lib/Iyzipay');
 const utils = require('../lib/utils');
 const options = require('./data/options');
