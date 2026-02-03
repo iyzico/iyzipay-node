@@ -140,4 +140,38 @@ describe('IyziLink Product', function () {
             done();
         });
     });
+
+    it('should update product status', function (done) {
+        const iyzipay = new Iyzipay({
+            uri: 'http://uri',
+            apiKey: 'apiKey',
+            secretKey: 'secretKey'
+        });
+
+        const request = {
+            conversationId: "123456",
+            locale: "en",
+            status: "PASSIVE",
+            linkToken: "WxI"
+        };
+
+        const mockResponse = {
+            status: "success",
+            locale: "en",
+            systemTime: 1687827915258,
+            conversationId: "123456"
+        };
+
+        iyzipay.iyziLink._request = function (method, cb) {
+            should.equal(method, 'updateProductStatus');
+            cb(null, null, mockResponse);
+        };
+
+        iyzipay.iyziLink.updateProductStatus(request, function (err, result) {
+            should.not.exist(err);
+            should.exist(result);
+            result.status.should.equal('success');
+            done();
+        });
+    });
 });
