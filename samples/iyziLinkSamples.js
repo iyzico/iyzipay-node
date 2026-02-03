@@ -39,5 +39,23 @@ describe('IyziLink API Test', function () {
                 done();
             });
         });
+
+        it('should create an IyziLink fastlink', function (done) {
+            const request = {
+                conversationId: "123456789",
+                locale: "tr",
+                description: "10 Books",
+                price: "75.00",
+                currencyCode: "TRY"
+            };
+
+            iyzipay.iyziLink.fastlink(request, function (err, result) {
+                console.log('err:', err);
+                console.log('result:', result);
+                should.not.exist(err);
+                should.exist(result);
+                done();
+            });
+        });
     });
 });
