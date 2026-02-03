@@ -5,7 +5,9 @@
   "main": "lib/Iyzipay.js",
   "scripts": {
     "test": "mocha $(find test -name '*Test.js')",
+    "iyzilink-test": "mocha test/unit/IyziLinkTest.js",
     "samples": "mocha $(find samples -name '*Samples.js')",
+    "iyzilink-samples": "mocha samples/IyziLinkSamples.js",
     "cover": "nyc npm test"
   },
   "repository": {

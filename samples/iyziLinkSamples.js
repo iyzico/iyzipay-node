@@ -1,0 +1,43 @@
+const should = require('should');
+const Iyzipay = require('../lib/Iyzipay');
+const utils = require('../lib/utils');
+const path = require('path');
+const options = require('./data/options');
+
+describe('IyziLink API Test', function () {
+    let iyzipay;
+
+    before(function (done) {
+        iyzipay = new Iyzipay(options);
+        done();
+    });
+
+    describe('IyziLink Product', function () {
+        it('should create an IyziLink product', function (done) {
+            const request = {
+                conversationId: "123456",
+                locale: "en",
+                name: "Sample Product",
+                description: "10 Books",
+                price: "50.00",
+                currencyCode: "TRY",
+                encodedImageFile: utils.encodeFileBase64(path.join(__dirname, 'images', 'image.png')),
+                addressIgnorable: true,
+                installmentRequested: false,
+                stockEnabled: true,
+                stockCount: 25,
+                presetPriceValues: [10.00, 20.00],
+                categoryType: "UNKNOWN"
+            };
+
+            iyzipay.iyziLink.create(request, function (err, result) {
+                console.log('err:', err);
+                console.log('result:', result);
+                should.not.exist(err);
+                should.exist(result);
+                should.exist(result.data.token);
+                done();
+            });
+        });
+    });
+});
