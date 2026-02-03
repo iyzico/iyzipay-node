@@ -99,5 +99,21 @@ describe('IyziLink API Test', function () {
                 done();
             });
         });
+
+        it('should retrieve an IyziLink product', function (done) {
+            const request = {
+                locale: "en",
+                conversationId: "123456",
+                linkToken: "AAI0pA"
+            };
+
+            iyzipay.iyziLink.retrieve(request, function (err, result) {
+                console.log('err:', err);
+                console.log('result:', result);
+                should.not.exist(err);
+                should.exist(result);
+                done();
+            });
+        });
     });
 });

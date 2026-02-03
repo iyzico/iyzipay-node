@@ -174,4 +174,64 @@ describe('IyziLink Product', function () {
             done();
         });
     });
+
+    it('should retrieve product', function (done) {
+        const iyzipay = new Iyzipay({
+            uri: 'http://uri',
+            apiKey: 'apiKey',
+            secretKey: 'secretKey'
+        });
+
+        const request = {
+            conversationId: "123456",
+            locale: "en",
+            linkToken: "Wx0"
+        };
+
+        const mockResponse = {
+            status: "success",
+            locale: "en",
+            systemTime: 1687827915258,
+            conversationId: "123456",
+            data: {
+                name: "sample-name",
+                conversationId: "1123456789",
+                description: "10 Books",
+                price: "50.00000000",
+                currencyId: 3,
+                currencyCode: "USD",
+                token: "Wx0",
+                productType: "IYZILINK",
+                productStatus: "ACTIVE",
+                merchantId: 376927,
+                url: "https://sandbox.iyzi.link/Wx0",
+                imageUrl: "https://sandbox-img.iyzi.link/Wx/0.jpg",
+                addressIgnorable: false,
+                soldCount: 0,
+                installmentRequested: false,
+                stockEnabled: false,
+                stockCount: 0,
+                presetPriceValues: [
+                    "50.00",
+                    "75.00",
+                    "100.00"
+                ],
+                flexibleLink: false,
+                categoryType: "PHONE"
+            }
+        };
+
+        iyzipay.iyziLink._request = function (method, cb) {
+            should.equal(method, 'retrieve');
+            cb(null, null, mockResponse);
+        };
+
+        iyzipay.iyziLink.retrieve(request, function (err, result) {
+            should.not.exist(err);
+            should.exist(result);
+            should.exist(result.data);
+            result.data.token.should.equal('Wx0');
+            done();
+        });
+    });
 });
