@@ -6,8 +6,11 @@
   "scripts": {
     "test": "mocha $(find test -name '*Test.js')",
     "iyzilink-test": "mocha test/unit/IyziLinkTest.js",
+    "refund-v2-test": "mocha test/unit/RefundV2Test.js",
     "samples": "mocha $(find samples -name '*Samples.js')",
+    "iyzipay-samples": "mocha samples/IyziPaySamples.js",
     "iyzilink-samples": "mocha samples/IyziLinkSamples.js",
+    "refund-v2-samples": "mocha samples/IyziPayRefundV2Samples.js",
     "cover": "nyc npm test"
   },
   "repository": {
