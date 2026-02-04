@@ -33,4 +33,17 @@ describe('Reporting API Test', function () {
             done();
         });
     });
+
+    it('should retrieve reporting scroll transactions', function (done) {
+        iyzipay.reportingScrollTransactions.retrieve({
+            locale: Iyzipay.LOCALE.TR,
+            conversationId: '123456789',
+            transactionDate: '2025-01-01 00:00:00',
+            documentScrollVoSortingOrder: 'ASC',
+            lastId: '1689853839161'
+        }, function (err, result) {
+            console.log(err, result);
+            done();
+        });
+    });
 });
