@@ -14,7 +14,7 @@
     "iyzilink-samples": "mocha samples/IyziLinkSamples.js",
     "refund-v2-samples": "mocha samples/IyziPayRefundV2Samples.js",
     "pwi-samples": "mocha samples/PayWithIyzicoSamples.js",
-    "report-samples": "mocha samples/ReportingSamples.js",
+    "report-samples": "mocha samples/IyzipayReportingSamples.js",
     "cover": "nyc npm test"
   },
   "repository": {

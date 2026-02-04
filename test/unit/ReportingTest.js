@@ -106,4 +106,27 @@ describe('Reporting', function () {
             done();
         });
     });
+
+    describe('Retrieving Bounced Payments', function () {
+        it('should initialize reporting bounced payments with correct api configuration', function (done) {
+            var reportingBouncedPayments = iyzipay.reportingBouncedPayments;
+            reportingBouncedPayments._api.retrieve.should.have.property('path', '/reporting/settlement/bounced');
+            reportingBouncedPayments._api.retrieve.should.have.property('method', 'POST');
+            reportingBouncedPayments._api.retrieve.should.have.property('requestModel', 'RetrieveBouncedPaymentsRequest');
+            done();
+        });
+
+        it('should create RetrieveBouncedPaymentsRequest with correct properties', function (done) {
+            var request = new (require('../../lib/requests/RetrieveBouncedPaymentsRequest'))({
+                locale: Iyzipay.LOCALE.TR,
+                conversationId: '123456789',
+                date: '2016-01-22 19:13:00'
+            });
+            var json = request.toJson();
+            json.should.have.property('locale', 'tr');
+            json.should.have.property('conversationId', '123456789');
+            json.should.have.property('date', '2016-01-22 19:13:00');
+            done();
+        });
+    });
 });
