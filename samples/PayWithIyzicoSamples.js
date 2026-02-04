@@ -75,4 +75,21 @@ describe('PayWithIyzico API Test', function () {
             done();
         });
     });
+
+    it('should retrieve pay with iyzipay', function (done) {
+        const request = {
+            locale: Iyzipay.LOCALE.TR,
+            conversationId: 'conversationID',
+            token: 'da7431f4-89fc-4f65-8533-d83a4fede7d9'
+        };
+
+        iyzipay.payWithIyzico.retrieve(request, function (err, result) {
+            console.log(err, result);
+            if (result.status === 'success') {
+                const { paymentStatus, paymentId, currency, basketId, conversationId, paidPrice, price, token, signature } = result;
+                verifySignature([paymentStatus, paymentId, currency, basketId, conversationId, paidPrice, price, token], secretKey, signature);
+            }
+            done();
+        });
+    });
 });

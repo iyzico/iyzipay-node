@@ -85,4 +85,96 @@ describe('Pay With Iyzico', function () {
             done();
         });
     });
+
+    it('should retrieve pay with iyzico result', function (done) {
+        const iyzipay = new Iyzipay({
+            uri: 'http://uri',
+            apiKey: 'apiKey',
+            secretKey: 'secretKey'
+        });
+
+        const request = {
+            locale: "en",
+            conversationId: "8152109759",
+            token: "da7431f4-89fc-4f65-8533-d83a4fede7d9"
+        };
+
+        const mockResponse = {
+            "status": "success",
+            "locale": "en",
+            "systemTime": 1755252706797,
+            "conversationId": "8152109759",
+            "price": 10,
+            "paidPrice": 10,
+            "installment": 1,
+            "paymentId": "25152948",
+            "fraudStatus": 1,
+            "merchantCommissionRate": 0,
+            "merchantCommissionRateAmount": 0,
+            "iyziCommissionRateAmount": 0.349,
+            "iyziCommissionFee": 0.25,
+            "cardType": "CREDIT_CARD",
+            "cardAssociation": "MASTER_CARD",
+            "cardFamily": "Axess",
+            "binNumber": "552608",
+            "lastFourDigits": "0006",
+            "basketId": "basketID",
+            "currency": "TRY",
+            "itemTransactions": [
+                {
+                    "itemId": "ItemID",
+                    "paymentTransactionId": "27142369",
+                    "transactionStatus": 2,
+                    "price": 10,
+                    "paidPrice": 10,
+                    "merchantCommissionRate": 0,
+                    "merchantCommissionRateAmount": 0,
+                    "iyziCommissionRateAmount": 0.349,
+                    "iyziCommissionFee": 0.25,
+                    "blockageRate": 0,
+                    "blockageRateAmountMerchant": 0,
+                    "blockageRateAmountSubMerchant": 0,
+                    "blockageResolvedDate": "2025-08-23 00:00:00",
+                    "subMerchantPrice": 0,
+                    "subMerchantPayoutRate": 0,
+                    "subMerchantPayoutAmount": 0,
+                    "merchantPayoutAmount": 9.401,
+                    "convertedPayout": {
+                        "paidPrice": 10,
+                        "iyziCommissionRateAmount": 0.349,
+                        "iyziCommissionFee": 0.25,
+                        "blockageRateAmountMerchant": 0,
+                        "blockageRateAmountSubMerchant": 0,
+                        "subMerchantPayoutAmount": 0,
+                        "merchantPayoutAmount": 9.401,
+                        "iyziConversionRate": 0,
+                        "iyziConversionRateAmount": 0,
+                        "currency": "TRY"
+                    }
+                }
+            ],
+            "authCode": "277568",
+            "phase": "AUTH",
+            "hostReference": "mock00007iyzihostrfn",
+            "signature": "57b1be1f094d17da286c748e2b2779e078e550bafe9734d4fd8c092aeee022be",
+            "token": "0b7b67d2-fdf0-4c9a-905f-2b0003b1b8c7",
+            "callbackUrl": "callbackUrl",
+            "paymentStatus": "SUCCESS",
+            "memberEmail": "test@gmail.com",
+            "memberGsmNumber": "+905555555555"
+        };
+
+        iyzipay.payWithIyzico._request = function (method, cb) {
+            should.equal(method, 'retrieve');
+            cb(null, null, mockResponse);
+        };
+
+        iyzipay.payWithIyzico.retrieve(request, function (err, result) {
+            should.not.exist(err);
+            should.exist(result);
+            should.exist(result.paymentId);
+            result.paymentId.should.equal('25152948');
+            done();
+        });
+    });
 });
