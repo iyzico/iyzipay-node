@@ -1,13 +1,7 @@
 const should = require('should');
 const Iyzipay = require('../lib/Iyzipay');
-const utils = require('../lib/utils');
 const options = require('./data/options');
-
-const verifySignature = (params, secretKey, signature) => {
-    const calculatedSignature = utils.calculateHmacSHA256Signature(params, secretKey);
-    const verified = signature === calculatedSignature;
-    console.log('Signature verified:', verified);
-};
+const verifySignature = require('../test/unit/verifySignature');
 
 describe('Iyzipay API Test', function () {
 
