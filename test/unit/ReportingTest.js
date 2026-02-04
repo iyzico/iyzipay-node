@@ -4,7 +4,7 @@ var should = require('should'),
     Iyzipay = require('../../lib/Iyzipay'),
     RetrieveTransactionsRequest = require('../../lib/requests/RetrieveTransactionsRequest');
 
-describe('Reporting Transactions', function () {
+describe('Reporting', function () {
     var iyzipay = new Iyzipay({
         uri: 'https://sandbox-api.iyzipay.com',
         apiKey: 'apiKey',
@@ -32,6 +32,29 @@ describe('Reporting Transactions', function () {
             json.should.have.property('conversationId', '123456789');
             json.should.have.property('transactionDate', '2023-01-01 00:00:00');
             json.should.have.property('page', 1);
+            done();
+        });
+    });
+
+    describe('Retrieving Transaction Details', function () {
+        it('should initialize reporting transaction details with correct api configuration', function (done) {
+            var reportingTransactionDetails = iyzipay.reportingTransactionDetails;
+            reportingTransactionDetails._api.retrieve.should.have.property('path', '/v2/reporting/payment/transaction/details');
+            reportingTransactionDetails._api.retrieve.should.have.property('method', 'GET');
+            reportingTransactionDetails._api.retrieve.should.have.property('queryString', 'RetrieveTransactionDetailsRequest');
+            done();
+        });
+
+        it('should create RetrieveTransactionDetailsRequest with correct properties', function (done) {
+            var request = new (require('../../lib/requests/RetrieveTransactionDetailsRequest'))({
+                locale: Iyzipay.LOCALE.TR,
+                conversationId: '123456789',
+                paymentConversationId: '12345'
+            });
+            var json = request.toJson();
+            json.should.have.property('locale', 'tr');
+            json.should.have.property('conversationId', '123456789');
+            json.should.have.property('paymentConversationId', '12345');
             done();
         });
     });

@@ -22,4 +22,15 @@ describe('Reporting API Test', function () {
             done();
         });
     });
+
+    it('should retrieve reporting transaction details', function (done) {
+        iyzipay.reportingTransactionDetails.retrieve({
+            locale: Iyzipay.LOCALE.TR,
+            conversationId: '123456789',
+            paymentConversationId: '23324226'
+        }, function (err, result) {
+            console.log(err, result);
+            done();
+        });
+    });
 });
