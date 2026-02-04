@@ -46,4 +46,15 @@ describe('Reporting API Test', function () {
             done();
         });
     });
+
+    it('should retrieve reporting payout completed', function (done) {
+        iyzipay.reportingPayoutCompleted.retrieve({
+            locale: Iyzipay.LOCALE.TR,
+            conversationId: '123456789',
+            date: '2025-01-01 00:00:00'
+        }, function (err, result) {
+            console.log(err, result);
+            done();
+        });
+    });
 });
