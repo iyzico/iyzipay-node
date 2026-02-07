@@ -9,12 +9,14 @@
     "refund-v2-test": "mocha test/unit/RefundV2Test.js",
     "pwi-test": "mocha test/unit/PayWithIyzicoTest.js",
     "report-test": "mocha test/unit/ReportingTest.js",
+    "subscription-test": "mocha test/unit/SubscriptionTest.js",
     "samples": "mocha $(find samples -name '*Samples.js')",
     "iyzipay-samples": "mocha samples/IyziPaySamples.js",
     "iyzilink-samples": "mocha samples/IyziLinkSamples.js",
     "refund-v2-samples": "mocha samples/IyziPayRefundV2Samples.js",
     "pwi-samples": "mocha samples/PayWithIyzicoSamples.js",
     "report-samples": "mocha samples/IyzipayReportingSamples.js",
+    "subscription-samples": "mocha samples/IyzipaySubscriptionSamples.js",
     "cover": "nyc npm test"
   },
   "repository": {

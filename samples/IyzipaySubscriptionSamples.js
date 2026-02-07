@@ -194,6 +194,19 @@ describe('Iyzipay Subscription API Test', function () {
             });
         });
 
+        it('should delete customer', function (done) {
+            var deleteRequest = {
+                customerReferenceCode: 'baabdbde-020a-425d-8ca7-d6350e39f904'
+            };
+
+            iyzipay.subscriptionCustomer.delete(deleteRequest, function (err, result) {
+                console.log(err, result);
+                should.not.exist(err);
+                should.exist(result);
+                done();
+            });
+        });
+
         it('should update customer', function (done) {
             var updateRequest = {
                 locale: Iyzipay.LOCALE.EN,
@@ -264,7 +277,7 @@ describe('Iyzipay Subscription API Test', function () {
                 customerReferenceCode: '3bb6d0b5-b53c-4732-a641-6fa3f8d39c21',
                 callbackUrl: 'callbackUrl'
             };
-            
+
             iyzipay.subscriptionCard.update(updateCardRequestWithCustomerCode, function (err, result) {
                 console.log(err, result);
                 done();
