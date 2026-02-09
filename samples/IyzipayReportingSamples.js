@@ -40,7 +40,7 @@ describe('Reporting API Test', function () {
             conversationId: '123456789',
             transactionDate: '2025-01-01 00:00:00',
             documentScrollVoSortingOrder: 'ASC',
-            lastId: '1689853839161'
+            lastId: ''
         }, function (err, result) {
             console.log(err, result);
             done();
