@@ -60,4 +60,24 @@ describe('Iyzipay', function () {
         }, /secretKey cannot be empty/);
         done();
     });
+
+    it('should remove trailing slash from uri', function (done) {
+        var iyzipay = new Iyzipay({
+            uri: 'http://uri/',
+            apiKey: 'apiKey',
+            secretKey: 'secretKey'
+        });
+        iyzipay._config.uri.should.equal('http://uri');
+        done();
+    });
+
+    it('should remove trailing slash and preserve protocol', function (done) {
+        var iyzipay = new Iyzipay({
+            uri: 'https://sandbox-api.iyzipay.com/',
+            apiKey: 'apiKey',
+            secretKey: 'secretKey'
+        });
+        iyzipay._config.uri.should.equal('https://sandbox-api.iyzipay.com');
+        done();
+    });
 });
