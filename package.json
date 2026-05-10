@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/iyzico/iyzipay-node",
   "dependencies": {
-    "postman-request": "^2.88.1-postman.40"
+    "postman-request": "2.88.1-postman.48"
   },
   "devDependencies": {
     "mocha": "^12.0.0-beta-10",
