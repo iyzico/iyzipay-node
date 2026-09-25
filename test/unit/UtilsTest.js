@@ -54,6 +54,12 @@ describe('Iyzipay', function () {
         done();
     });
 
+    it('should not turn a hex price into zero', function (done) {
+        var price = utils.formatPrice('0x10');
+        price.should.be.equal('0x10');
+        done();
+    });
+
     it('should convert non-float price', function (done) {
         var price = utils.formatPrice('22');
         price.should.be.equal('22.0');
