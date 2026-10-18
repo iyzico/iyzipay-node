@@ -80,4 +80,20 @@ describe('Iyzipay', function () {
         iyzipay._config.uri.should.equal('https://sandbox-api.iyzipay.com');
         done();
     });
+
+    it('should initialize all resources without filesystem access', function (done) {
+        var iyzipay = new Iyzipay({
+            uri: 'https://sandbox-api.iyzipay.com',
+            apiKey: 'apiKey',
+            secretKey: 'secretKey'
+        });
+        iyzipay.payment.should.be.an.Object();
+        iyzipay.payment.create.should.be.a.Function();
+        iyzipay.checkoutForm.should.be.an.Object();
+        iyzipay.subscription.should.be.an.Object();
+        iyzipay.iyziLink.should.be.an.Object();
+        iyzipay.refundV2.should.be.an.Object();
+        iyzipay.reportingTransactions.should.be.an.Object();
+        done();
+    });
 });

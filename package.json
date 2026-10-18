@@ -3,6 +3,7 @@
   "version": "2.0.70",
   "description": "iyzipay api node.js client",
   "main": "lib/Iyzipay.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "mocha $(find test -name '*Test.js')",
     "iyzilink-test": "mocha test/unit/IyziLinkTest.js",
